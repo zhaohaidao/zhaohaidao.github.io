@@ -21,4 +21,6 @@ title: git学习总结
 # git reflog
 + 保存了所有的操作历史，查找丢失commit的利器
 
-# git log
+# git plog
++ 可以查看树状结构的代码历史，清晰易懂
++ plog = log --graph --full-history --all --pretty=format:\"%Cred%h%x09%C(cyan)%d%x20%Creset%s%Cblue<%C(yellow)%aN%Cblue>\"
