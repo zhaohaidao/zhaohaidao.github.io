@@ -3,7 +3,7 @@ layout: post
 title: git学习总结
 ---
 
-# git checkout 与 git reset的区别
+# git checkout 与 git reset
 + git checkout
     - 抹去工作区中最近的改动(restore working tree files)
 + git reset
