@@ -48,7 +48,7 @@ ThreadPoolExecutor中的异常处理逻辑如下
 
 因此，task执行中出现未知异常中断，默认情况下，主线程是不会收到task异常通知的。
 
-```java
+```java{1}
 final void runWorker(Worker w) {
     Thread wt = Thread.currentThread();
     Runnable task = w.firstTask;
