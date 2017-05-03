@@ -30,8 +30,9 @@ title: Python知识点总结
 
 ## 官方解释
 > A thread can be flagged as a “daemon thread”. The significance of this flag is that the entire Python program exits when only daemon threads are left
-## 理解
-+ non-daemon thread，当你没有为thread设置daemon=True时，就需要管理线程的生命周期。执行以下代码就会发现，该程序一直会执行，除非显式的join或者cancel（cancel并不能保证thread结束，有坑）。
+
+## 个人理解
++ non-daemon thread，当你没有为thread设置daemon=True时，就需要管理线程的生命周期。执行以下代码就会发现，该程序一直周期性打印Hello，并不会主动停止。除非显式的join或者cancel（cancel并不能保证thread结束，有坑）。
 
 ```python
 import threading
