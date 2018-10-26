@@ -4,11 +4,13 @@ title: Stoppable Paxos解读
 ---
 # 摘要
 在Reconfiguring a State Machine一文中，lamport将reconfiguration分解为3个正交的问题：停止当前的状态机、选择下一个状态机的成员组和组合一系列状态机。本文将详细解读实现停止当前状态机的算法：即Stoppable Paxos。
+
 # 再论Paxos
 本章简要回忆了经典Paxos算法，此处不再赘述。不过本章的几个重要概念值得注意，会在后续章节用到。
 + phase2a proposer进行第二阶段消息的提交（更明确一点，就是将command放入待发送消息队列）
 + maxbal2a(i, b, Q) 即一阶段的返回值里最大的ballot number（小于b）
 + val2a(b, Q) 即paxos一阶段的返回值里最大的ballot number（小于b）对应的command，如果不为空，说明这个instance之前执行过phase2a，因此才有可能被观察到
+
 # Stoppable Paxos算法
 与普通Paxos算法一样，新的Leader以合适的Ballot执行Phase1a。但当Leader发现stop command有可能被选择（chosen）时，Stoppable Paxos的处理方式与普通Paxos不同。
     
@@ -56,8 +58,10 @@ title: Stoppable Paxos解读
 
 # Correctness
 略
+
 # Proof
 略（有机会更新，跟普通Paxos比，证明过程复杂繁琐许多）
+
 # 总结
 和初读Paxos made simple的感受类似，lamport的论文惜字如金，有的语句不是那么容易明白，但是一旦理解，又会觉得作者一个多余的字，一句废话都没有。
 Stoppable paxos实际上是paxos的一个变种，作者找到问题的切入点（phase2a的启动条件），通过巧妙增加约束的方式实现了停止状态机，不仅没有引入额外消息以及延迟等副作用，而且并发能力和paxos相当（任意并发提交多个实例），思路值得学习。
