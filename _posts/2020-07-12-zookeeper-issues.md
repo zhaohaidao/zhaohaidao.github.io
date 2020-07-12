@@ -33,5 +33,6 @@ java.lang.NoSuchMethodError: java.nio.ByteBuffer.flip()Ljava/nio/ByteBuffer;
 Google可知，使用zookeeper3.5.+的版本，会有jdk的兼容性问题，具体有两个解决办法。
 + 升级到jdk9
 + 降级zookeeper，使用3.4.+版本
+
 详情可见：https://stackoverflow.com/questions/60612999/kafka-with-zookeeper-3-5-7-crash-nosuchmethoderror-java-nio-bytebuffer-flip/60613000#60613000
 
